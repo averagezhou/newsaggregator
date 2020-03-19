@@ -1,0 +1,86 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all sources
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new source
+    </h2>
+
+    <form action="/insert_source" method="post">
+      <div class="form-group">
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create source
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @sources.each do |source| %>
+      <tr>
+        <td>
+          <%= source.id %>
+        </td>
+
+        <td>
+          <%= source.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(source.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(source.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/sources/<%= source.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

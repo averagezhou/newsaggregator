@@ -1,0 +1,191 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Bookmark #<%= @bookmark.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/bookmarks" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_bookmark/<%= @bookmark.id %>" class="btn btn-block btn-outline-secondary">
+          Delete bookmark
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @bookmark.owner_id %>
+      </dd>
+
+      <dt>
+        Article
+      </dt>
+      <dd>
+        <%= @bookmark.article_id %>
+      </dd>
+
+      <dt>
+        Tag
+      </dt>
+      <dd>
+        <%= @bookmark.tag %>
+      </dd>
+
+      <dt>
+        Generate
+      </dt>
+      <dd>
+        <%= @bookmark.generate %>
+      </dd>
+
+      <dt>
+        Draft
+      </dt>
+      <dd>
+        <%= @bookmark.draft %>
+      </dd>
+
+      <dt>
+        Bookmark
+      </dt>
+      <dd>
+        <%= @bookmark.bookmark %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @bookmark.owner_id %>
+      </dd>
+
+      <dt>
+        Article
+      </dt>
+      <dd>
+        <%= @bookmark.article_id %>
+      </dd>
+
+      <dt>
+        Tag
+      </dt>
+      <dd>
+        <%= @bookmark.tag %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@bookmark.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@bookmark.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit bookmark
+    </h2>
+
+    <form action="/modify_bookmark/<%= @bookmark.id %>"  method="post" >
+      <div class="form-group">
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control" value="<%= @bookmark.owner_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="article_id_box">
+          Article
+        </label>
+
+        <input type="text" id="article_id_box" name="query_article_id" class="form-control" value="<%= @bookmark.article_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="tag_box">
+          Tag
+        </label>
+
+        <input type="text" id="tag_box" name="query_tag" class="form-control" value="<%= @bookmark.tag %>">
+      </div>
+
+      <div class="form-group">
+        <label for="generate_box">
+          Generate
+        </label>
+
+        <input type="text" id="generate_box" name="query_generate" class="form-control" value="<%= @bookmark.generate %>">
+      </div>
+
+      <div class="form-group">
+        <label for="draft_box">
+          Draft
+        </label>
+
+        <input type="text" id="draft_box" name="query_draft" class="form-control" value="<%= @bookmark.draft %>">
+      </div>
+
+      <div class="form-group">
+        <label for="bookmark_box">
+          Bookmark
+        </label>
+
+        <input type="text" id="bookmark_box" name="query_bookmark" class="form-control" value="<%= @bookmark.bookmark %>">
+      </div>
+
+      <div class="form-group">
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control" value="<%= @bookmark.owner_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="article_id_box">
+          Article
+        </label>
+
+        <input type="text" id="article_id_box" name="query_article_id" class="form-control" value="<%= @bookmark.article_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="tag_box">
+          Tag
+        </label>
+
+        <input type="text" id="tag_box" name="query_tag" class="form-control" value="<%= @bookmark.tag %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update bookmark
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,198 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all articles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new article
+    </h2>
+
+    <form action="/insert_article" method="post">
+      <div class="form-group">
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="source_id_box">
+          Source
+        </label>
+
+        <input type="text" id="source_id_box" name="query_source_id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="query_author" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="published_at_box">
+          Published at
+        </label>
+
+        <input type="datetime-local" id="published_at_box" name="query_published_at" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="bookmark_count_box">
+          Bookmark count
+        </label>
+
+        <input type="text" id="bookmark_count_box" name="query_bookmark_count" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create article
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Url
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Source
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Published at
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Bookmark count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @articles.each do |article| %>
+      <tr>
+        <td>
+          <%= article.id %>
+        </td>
+
+        <td>
+          <%= article.url %>
+        </td>
+
+        <td>
+          <%= article.title %>
+        </td>
+
+        <td>
+          <%= article.source_id %>
+        </td>
+
+        <td>
+          <%= article.author %>
+        </td>
+
+        <td>
+          <%= article.image %>
+        </td>
+
+        <td>
+          <%= article.published_at %>
+        </td>
+
+        <td>
+          <%= article.description %>
+        </td>
+
+        <td>
+          <%= article.bookmark_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(article.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(article.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/articles/<%= article.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

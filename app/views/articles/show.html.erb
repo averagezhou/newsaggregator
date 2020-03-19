@@ -1,0 +1,177 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Article #<%= @article.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/articles" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_article/<%= @article.id %>" class="btn btn-block btn-outline-secondary">
+          Delete article
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Url
+      </dt>
+      <dd>
+        <%= @article.url %>
+      </dd>
+
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @article.title %>
+      </dd>
+
+      <dt>
+        Source
+      </dt>
+      <dd>
+        <%= @article.source_id %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @article.author %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @article.image %>
+      </dd>
+
+      <dt>
+        Published at
+      </dt>
+      <dd>
+        <%= @article.published_at %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @article.description %>
+      </dd>
+
+      <dt>
+        Bookmark count
+      </dt>
+      <dd>
+        <%= @article.bookmark_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@article.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@article.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit article
+    </h2>
+
+    <form action="/modify_article/<%= @article.id %>"  method="post" >
+      <div class="form-group">
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url" class="form-control" value="<%= @article.url %>">
+      </div>
+
+      <div class="form-group">
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" class="form-control" value="<%= @article.title %>">
+      </div>
+
+      <div class="form-group">
+        <label for="source_id_box">
+          Source
+        </label>
+
+        <input type="text" id="source_id_box" name="query_source_id" class="form-control" value="<%= @article.source_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="query_author" class="form-control" value="<%= @article.author %>">
+      </div>
+
+      <div class="form-group">
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" class="form-control" value="<%= @article.image %>">
+      </div>
+
+      <div class="form-group">
+        <label for="published_at_box">
+          Published at
+        </label>
+
+        <input type="datetime-local" id="published_at_box" name="query_published_at"
+          class="form-control" value="<%= @article.published_at %>">
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" class="form-control" rows="3"><%= @article.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="bookmark_count_box">
+          Bookmark count
+        </label>
+
+        <input type="text" id="bookmark_count_box" name="query_bookmark_count" class="form-control" value="<%= @article.bookmark_count %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update article
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
